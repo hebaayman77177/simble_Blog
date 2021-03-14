@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="#" class="btn btn-success">Create Post</a>
+<a href="{{route('posts.create')}}" class="btn btn-success">Create Post</a>
 
     <table class="table  mt-5 container">
         <thead>
@@ -21,9 +21,9 @@
             <td>{{$post['posted_by']}}</td>
             <td>{{$post['created_at']}}</td>
             <td class="col">
-                <a href="#" class="btn btn-info">View</a>
-                <a href="#" class="btn btn-primary">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="{{ route('posts.show', [ 'post' => $post['id'] ]) }}" class="btn btn-info">View</a>
+                <a href="{{ route('posts.edit', [ 'post' => $post['id'] ]) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('posts.destroy', [ 'post' => $post['id'] ]) }}" class="btn btn-danger">Delete</a>
             </td>
           </tr>
           @endforeach

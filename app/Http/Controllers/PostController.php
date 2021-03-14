@@ -17,4 +17,46 @@ class PostController extends Controller
             'posts' => $posts,
         ]);
     }
+
+    public function show($post)
+    {
+        $post = ['id' => 1, 'title' => 'Laravel', 'description' => 'Show Post Description', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-13'];
+
+        return view('posts.show', [
+            'post' => $post
+        ]);
+    }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store()
+    {
+        //logic for saving in db
+
+        return redirect()->route('posts.index');
+    }
+    public function edit($post)
+    {
+        //logic for saving in db
+        $post = ['id' => 1, 'title' => 'Laravel', 'description' => 'Show Post Description', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-13'];
+        return view('posts.edit', [
+            'post' => $post
+        ]);
+    }
+    public function update($post)
+    {
+        //logic for saving in db
+
+        return redirect()->route('posts.index');
+    }
+    public function destroy($post)
+    {
+       
+        //TODO: rerender right?????
+        //logic for saving in db
+        return redirect()->route('posts.index');
+    }
 }
