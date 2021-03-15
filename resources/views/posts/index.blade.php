@@ -18,8 +18,8 @@
                     <th scope="row">{{ $post['id'] }}</th>
                     <td>{{ $post['title'] }}</td>
                     <td>{{ $post->user ? $post->user->name : 'user not found' }}</td>
-                    <?php $createdAt = new Carbon($post['created_at']) ?>
-                    <td>{{$createdAt->toFormattedDateString() }}</td>
+                    <?php $createdAt = new Carbon($post['created_at']); ?>
+                    <td>{{ $createdAt->toFormattedDateString() }}</td>
                     <td class="col">
                         <a href="{{ route('posts.show', ['post' => $post['id']]) }}" class="btn btn-info">View</a>
                         <a href="{{ route('posts.edit', ['post' => $post['id']]) }}" class="btn btn-primary">Edit</a>
@@ -36,4 +36,7 @@
             @endforeach
         </tbody>
     </table>
+    <div>
+        {!! $posts->links() !!}
+    </div>
 @endsection
